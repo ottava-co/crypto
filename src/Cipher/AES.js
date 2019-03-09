@@ -1,8 +1,11 @@
 // © 2016-2018 Fabio Garcia. All rights reserved.
 
+// Dependencies
 import Debug from 'ottava-debug';
-import Cipher from '../Cipher.js';
+import Mutable from 'ottava-mutable';
 
+// Base abstraction
+import Cipher from '../Cipher.js';
 
 // AES protected methods:
 let _AES = {};
@@ -157,12 +160,12 @@ export default class AES extends Cipher {
 
   // AES CBC Encrypt
   static encrypt(key, iv, buffer) {
-    Debug.valid(key, iv, buf, ArrayBuffer);
+    Debug.valid(key, iv, buf, Mutable);
     let keyex = key.slice(0),
         blkba = blk.rightPad(0x00, blk.length % 16);
     Init();
     ExpandKey(keyex);
-    let enc = new BufEx(iv); //Bytes.Generate(this.random, 16);
+    let enc = new Mutable(iv); //Bytes.Generate(this.random, 16);
     for(let i = 0; i < blkba.length/16; i++) {
       let tmpba = blkba.slice((i*16), (i*16)+16),
           preba = enc.slice((i*16), (i*16)+16);
@@ -176,9 +179,10 @@ export default class AES extends Cipher {
 
   // AES CBC Decrypt
   static decrypt(key, iv , buffer) {
-    Debug.valid(key, iv , buffer, ArrayBuffer);
+    Debug.valid(key, iv , buffer, Mutable);
     let keyex = key.slice(0),
-        dec = new Data();
+
+        dec = new Mutable();
     Init();
     ExpandKey(keyex);
     for(let i = 1; i < (buf.length/16); i++) {

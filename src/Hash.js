@@ -1,7 +1,10 @@
 // © 2016-2018 Fabio Garcia. All rights reserved.
 
+// Dependencies
 import Debug from 'ottava-debug';
+import Mutable from 'ottava-mutable';
 
+// Class definition
 export default class Hash {
 
   static get size() {
@@ -14,8 +17,8 @@ export default class Hash {
   static hash(buffer) {
     Debug.abstract(
       'Hash::hash',
-      '<ArrayBuffer> buffer',
-      '<string>'
+      '<Mutable> buffer',
+      '<Mutable>'
     );
   }
 

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ottava-co/crypto#readme",
   "dependencies": {
-    "ottava-debug": "^1.0.1"
+    "ottava-debug": "^1.0.1",
+    "ottava-mutable": "^1.0.0"
   }
 }

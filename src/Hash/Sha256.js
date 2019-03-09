@@ -1,6 +1,10 @@
 // © 2016-2018 Fabio Garcia. All rights reserved.
 
+// Dependencies
 import Debug from 'ottava-debug';
+import Mutable from 'ottava-mutable';
+
+// Base abstraction
 import Hash from '../Hash.js';
 
 // Logical functions
@@ -20,9 +24,7 @@ export default class Sha256 extends Hash {
   }
 
   static hash(buffer) {
-    if(!(buffer instanceof ArrayBuffer)) {
-      throw 'Sha256.hash() - Invalid buffer.';
-    }
+    Debug.valid(buffer, Mutable);
     let u16in = new Uint16Array(buffer),
         msg = String.fromCharCode.apply(null, u16in);
     // constants [§4.2.2]
@@ -97,7 +99,7 @@ export default class Sha256 extends Hash {
     for (let h=0; h<H.length; h++) {
       H[h] = ('00000000'+H[h].toString(16)).slice(-8);
     }
-    return H.join('');
+    return Mutable.fromHex(H.join(''));
   }
 
 };
