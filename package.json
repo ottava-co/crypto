@@ -1,0 +1,22 @@
+{
+  "name": "ottava-crypto",
+  "version": "1.0.0",
+  "description": "Ottava cryptography utility library",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ottava-co/crypto.git"
+  },
+  "author": "Fabio Ilian Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ottava-co/crypto/issues"
+  },
+  "homepage": "https://github.com/ottava-co/crypto#readme",
+  "dependencies": {
+    "ottava-debug": "^1.0.1"
+  }
+}
