@@ -10,7 +10,7 @@ export default class Hash {
   static get size() {
     Debug.abstract(
       'Hash::size',
-      '<integer>'
+      '<Integer>'
     );
   }
 
